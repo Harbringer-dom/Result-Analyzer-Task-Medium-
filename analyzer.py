@@ -1,4 +1,5 @@
 def get_grade(marks):
+    #Deciding the grade based on the marks range
     """
     Return grade based on marks
     A : 90-100
@@ -6,7 +7,7 @@ def get_grade(marks):
     C : below 69
     """
     
-
+    # Conditions
     if 90 <= marks <= 100:
         return 'A'
     elif 70 <= marks < 89:
@@ -16,6 +17,7 @@ def get_grade(marks):
 
 
 def enter_students():
+    # Enter student details(name and marks)
     students = []
     n = int(input("Enter number of students: "))
     for i in range(n):
@@ -26,6 +28,7 @@ def enter_students():
 
 
 def analyze_marks(students):
+    # Analyze the marks to find highest,lowest,average,passed and failed
     highest = students[0]
     lowest = students[0]
     average = sum(s["marks"] for s in students) / len(students)
