@@ -4,16 +4,21 @@ def get_grade(marks):
     Return grade based on marks
     A : 90-100
     B : 70-89
-    C : below 69
+    C : 40-69
+    D : below 40
     """
     
     # Conditions
-    if 90 <= marks <= 100:
+    if marks < 0 or marks > 100:
+        return 'Invalid Input'
+    elif 90 <= marks <= 100:
         return 'A'
-    elif 70 <= marks < 89:
+    elif 70 <= marks <= 89:
         return 'B'
-    else:
+    elif 40 <= marks <= 69:
         return 'C'
+    else:
+        return 'D'
 
 
 def enter_students():
@@ -23,7 +28,10 @@ def enter_students():
     for i in range(n):
         name = input("Student name: ")
         marks = float(input("Marks: "))
-        students.append({"name": name, "marks": marks})
+        if 0 <= marks <= 100:
+            students.append({"name": name, "marks": marks})
+        else:
+            print("Invalid marks . Please enter again")
     return students
 
 
@@ -50,7 +58,7 @@ def main():
     print("Student Analysis: ")
     print(f"Highest: {highest['name']} ({highest['marks']})")
     print(f"Lowest: {lowest['name']} ({lowest['marks']})")
-    print(f"Average: {average}")
+    print(f"Average: {round(average, 2)}")
     print(f"Passed: {passed}")
     print(f"Failed: {failed}")
 
